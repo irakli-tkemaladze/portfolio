@@ -12,7 +12,9 @@ function Contact() {
   };
   return (
     <div className="contactWrapper">
+          <span>enter your message</span>
       <div className="contact">
+      
         <textarea
           value={textareaValue}
           onChange={(e) => setTextareaValue(e.target.value)}
