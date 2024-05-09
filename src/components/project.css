@@ -1,0 +1,42 @@
+.wrapperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  .projects {
+    width: 80%;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+ 
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 200px;
+      height: 200px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      background-color: aquamarine;
+      border: 1px solid black;
+      border-radius: 1rem;
+      padding: 0.5rem;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      scale: 1.2;
+      transition: 0.3s all linear;
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+    img {
+      border-radius: 5px 5px 0 0;
+      width: 100%;
+      object-fit: contain;
+      min-height: 100px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.headerWrapper {
+  padding: 0rem 2rem 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+  min-height: 100px;
+  align-items: center;
+}
+.navbarTitle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  color: black;
+  padding: 0 13px;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 2px;
+  }
+}
+
+.navbarTitle::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transition: 0.3s all linear;
+}
+.active {
+  h3 {
+    color: red;
+  }
+}
+.navbarTitle:hover::after {
+  width: 100%;
+}
+
+.navbarTitle:hover {
+  border: 1px solid black;
+  border-radius: 12px;
+  background-color: aquamarine;
+  scale: 1.2;
+  transition: 0.3s all linear;
+}
+
+.navLink {
+  text-decoration: none;
+}

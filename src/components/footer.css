@@ -1,0 +1,33 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  
+}
+.text {
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  color: white;
+}
+
+.svgs {
+display: flex;
+justify-content: center;
+gap: 1rem;
+a{
+   font-size: 1.5rem;
+   padding: 0.5rem;
+}
+a:hover{
+    scale: 1.2;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    transition: 0.3s all linear ;
+    background-color: white;
+}
+}

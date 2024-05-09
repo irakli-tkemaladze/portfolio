@@ -1,0 +1,17 @@
+.contactWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 700px;
+    flex-direction: column;
+    .contact {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        textarea{
+          min-height: 150px;
+          width: 30%;
+        }
+      }
+}
+
