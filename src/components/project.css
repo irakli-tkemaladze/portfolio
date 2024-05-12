@@ -1,14 +1,14 @@
 .wrapperContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding-top: 3rem;
   .projects {
-    width: 80%;
+    
     display: flex;
     gap: 2rem;
     justify-content: space-around;
- 
+
     .card {
       display: flex;
       flex-direction: column;

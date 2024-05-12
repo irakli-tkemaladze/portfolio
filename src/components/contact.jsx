@@ -1,20 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./contact.css";
 
-function Contact() {
-  const [textareaValue, setTextareaValue] = useState("");
-  const [messages, setMessages] = useState([]);
+function Contact({
+  messages,
+  setMessages,
+  textareaValue,
+  setTextareaValue,
+  customerName,
+  setCustomerName,
+}) {
   const sendMsg = () => {
-    if(textareaValue.trim().length){
-        setMessages([{textareaValue}, ...messages]);
-        setTextareaValue("");
+    if (textareaValue.trim().length) {
+      setMessages([
+        {
+          customerMessage: textareaValue,
+          customerName: customerName,
+          isRead: false,
+        },
+        ...messages,
+      ]);
+      setTextareaValue("");
+      setCustomerName("");
     }
+
   };
   return (
     <div className="contactWrapper">
-          <span>enter your message</span>
+      <input
+        onChange={(e) => setCustomerName(e.target.value)}
+        value={customerName}
+        placeholder="enter your name"
+        className="customerName"
+        type="text"
+      ></input>
+      <span>enter your message</span>
       <div className="contact">
-      
         <textarea
           value={textareaValue}
           onChange={(e) => setTextareaValue(e.target.value)}
