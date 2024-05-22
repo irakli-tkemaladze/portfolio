@@ -75,6 +75,9 @@ function Header({ messages, setMessages, openPopup }) {
             </div>
           </NavLink>
         ))}
+        <NavLink to={"/addproject"} >
+          <button className="addProjectBtn">add Project</button>
+        </NavLink>
         <div className="dropDawn">
           <div className="messageArea">
             {unreadMessages() ? (
@@ -92,7 +95,6 @@ function Header({ messages, setMessages, openPopup }) {
               }}
               className="dropDawnBtn"
             >
-             
               <div className="dropDawnImg">
                 <div className="line"></div>
                 <div className="midleLine"></div>

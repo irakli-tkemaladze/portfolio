@@ -1,0 +1,10 @@
+.appContent{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100dvh;
+    main{
+        flex-grow: 1;
+        display: flex;
+    }
+}

@@ -107,6 +107,7 @@ nav {
     }
     
     .messages {
+      z-index: 8;
       overflow: auto;
       position: absolute;
       top: 100%;
@@ -159,4 +160,14 @@ nav {
       }
     }
   }
+}
+.addProjectBtn{
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+  width: 6rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: rgb(49, 246, 49);
+  border-radius: 10rem;
 }

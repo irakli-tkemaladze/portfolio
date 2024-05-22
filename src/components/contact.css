@@ -4,6 +4,7 @@
     align-items: center;
     min-height: 700px;
     flex-direction: column;
+    flex-grow: 1;
     .contact {
         display: flex;
         justify-content: center;

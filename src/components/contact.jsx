@@ -32,6 +32,7 @@ function Contact({
         placeholder="enter your name"
         className="customerName"
         type="text"
+        autoComplete="off"
       ></input>
       <span>enter your message</span>
       <div className="contact">
