@@ -5,11 +5,12 @@ import { Home } from "./home";
 import { About } from "./about";
 import { Projects } from "./projects";
 import { Contact } from "./contact";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Popup } from "./popup";
 import { AddProjectPopup } from "./addProjectPopup";
+import {NotFound} from "./notFound"
 
-function Wrapper() {
+const PortfolioWrapper=() =>{
   const [openedItem, setOpenedItem] = useState(null);
   const [messages, setMessages] = useState([]);
   const [textareaValue, setTextareaValue] = useState("");
@@ -63,7 +64,7 @@ function Wrapper() {
               />
             }
           />
-          <Route path="*" element={<Div />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
@@ -71,8 +72,6 @@ function Wrapper() {
     </div>
   );
 }
-function Div() {
-  return <h1 style={{ color: "black" }}>not found</h1>;
-}
 
-export { Wrapper };
+
+export { PortfolioWrapper };

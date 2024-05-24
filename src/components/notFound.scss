@@ -1,0 +1,16 @@
+.pageNotFoundWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    h1{
+        color: black;
+        font-weight: bold;
+    }
+    span{
+        font-size: large;
+        font-weight: bolder;
+    }
+    
+}

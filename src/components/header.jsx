@@ -1,9 +1,29 @@
 import { AiFillHome } from "react-icons/ai";
-import "./header.css";
+import "./header.scss";
 import { NavLink } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
-function Header({ messages, setMessages, openPopup }) {
+const navBarElements = [
+  {
+    adress: "/home",
+    svg: <AiFillHome />,
+    title: "Home",
+  },
+  {
+    adress: "/about",
+    title: "About",
+  },
+  {
+    adress: "/projects",
+    title: "Projects",
+  },
+  {
+    adress: "/contact",
+    title: "Contact",
+  },
+];
+
+const Header = ({ messages, setMessages, openPopup }) => {
   const [messagesIsRead, setMessagesIsRead] = useState(false);
   const [isDropDawnOpen, setIsDropDawnOpen] = useState(false);
   const messagesRef = useRef();
@@ -22,17 +42,8 @@ function Header({ messages, setMessages, openPopup }) {
       document.removeEventListener("click", closeMessages);
     };
   }, [isDropDawnOpen]);
-  const unreadMessages = () => {
-    return messages.filter((item) => !item.isRead).length;
-  };
-  const readMsgs = () => {
-    const readmsgs = messages.filter((item) => item.isRead);
-    return readmsgs;
-  };
-  const unreadMsgs = () => {
-    const unreadmsgs = messages.filter((item) => !item.isRead);
-    return unreadmsgs;
-  };
+  const unreadMessages = () => messages.filter((item) => !item.isRead).length;
+
   const readMessage = (item, index) => {
     if (!item.isRead) {
       const newMessagesMasive = [...messages];
@@ -42,26 +53,6 @@ function Header({ messages, setMessages, openPopup }) {
     openPopup(item);
   };
 
-  const navBarElements = [
-    {
-      adress: "/home",
-      svg: <AiFillHome />,
-      title: "Home",
-    },
-    {
-      adress: "/about",
-      title: "About",
-    },
-    {
-      adress: "/projects",
-      title: "Projects",
-    },
-    {
-      adress: "/contact",
-      title: "Contact",
-    },
-  ];
-
   return (
     <header>
       <nav>
@@ -69,13 +60,13 @@ function Header({ messages, setMessages, openPopup }) {
           <NavLink key={index} className="navLink" to={item.adress}>
             <div className="headerWrapper">
               <div className="navbarTitle">
-                {item.svg ? item.svg : null}
+                {item.svg ?? null}
                 <h3>{item.title}</h3>
               </div>
             </div>
           </NavLink>
         ))}
-        <NavLink to={"/addproject"} >
+        <NavLink to={"/addproject"}>
           <button className="addProjectBtn">add Project</button>
         </NavLink>
         <div className="dropDawn">
@@ -104,9 +95,9 @@ function Header({ messages, setMessages, openPopup }) {
 
             {isDropDawnOpen && messages.length ? (
               <div ref={messagesRef} className="messages">
-                {(messagesIsRead ? readMsgs() : unreadMsgs()).map(
-                  (item, index) => {
-                    return (
+                {messages.map(
+                  (item, index) =>
+                    messagesIsRead === item.isRead && (
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -126,8 +117,7 @@ function Header({ messages, setMessages, openPopup }) {
                           ></div>
                         </div>
                       </button>
-                    );
-                  }
+                    )
                 )}
                 <div className="btns">
                   <button onClick={() => setMessagesIsRead(false)}>
@@ -142,6 +132,6 @@ function Header({ messages, setMessages, openPopup }) {
       </nav>
     </header>
   );
-}
+};
 
 export { Header };

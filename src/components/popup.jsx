@@ -1,24 +1,22 @@
-import { useRef, useState, useEffect } from "react";
-import "./popup.css";
+import { useRef, useEffect } from "react";
+import "./popup.scss";
 
-function Popup({ setIsPopupOpen, openedItem, messages, setMessages }) {
+const Popup = ({ setIsPopupOpen, openedItem, messages, setMessages }) => {
   const popupRef = useRef();
   useEffect(() => {
     const popup = (e) => {
       if (!popupRef.current?.contains(e.target)) {
         setIsPopupOpen(false);
-
       }
     };
-    document.body.style.overflowY = "hidden"
+    document.body.style.overflowY = "hidden";
     const settimeout = setTimeout(() => {
       document.addEventListener("click", popup);
-      
     }, 0);
     return function deleteListener() {
       clearTimeout(settimeout);
       document.removeEventListener("click", popup);
-      document.body.style.overflowY = "auto"
+      document.body.style.overflowY = "auto";
     };
   }, []);
 
@@ -45,6 +43,6 @@ function Popup({ setIsPopupOpen, openedItem, messages, setMessages }) {
       </div>
     </div>
   );
-}
+};
 
 export { Popup };

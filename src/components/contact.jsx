@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
-import "./contact.css";
+import "./contact.scss";
 
-function Contact({
+const Contact = ({
   messages,
   setMessages,
   textareaValue,
   setTextareaValue,
   customerName,
   setCustomerName,
-}) {
+}) => {
   const sendMsg = () => {
     if (textareaValue.trim().length) {
       setMessages([
         {
           customerMessage: textareaValue,
-          customerName: customerName,
+          customerName,
           isRead: false,
         },
         ...messages,
@@ -22,7 +21,6 @@ function Contact({
       setTextareaValue("");
       setCustomerName("");
     }
-
   };
   return (
     <div className="contactWrapper">
@@ -46,6 +44,6 @@ function Contact({
       </div>
     </div>
   );
-}
+};
 
 export { Contact };

@@ -1,17 +1,10 @@
-import "./project.css";
+import "./project.scss";
 import { useState } from "react";
 import { ContextMenu } from "./contextMenu";
 
 import { useEffect } from "react";
 import CrudServiceForProjects from "../services/projectsCrudService";
-function Projects({
-  parentSetContextMenu,
-  setContextMenu,
-  contextMenuOptions,
-  setContextMenuOptions,
-  listsRef,
-  contextMenuRef,
-}) {
+const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [cards, setCards] = useState([]);
@@ -29,9 +22,10 @@ function Projects({
       setCards(data);
       setIsLoading(false);
     };
-    CrudServiceForProjects.getAll().on("value", onDataChange);
+    const projectRef = CrudServiceForProjects.getAll();
+    projectRef.on("value", onDataChange);
     return () => {
-      CrudServiceForProjects.getAll().off("value", onDataChange);
+      projectRef.off("value", onDataChange);
     };
   }, []);
 
@@ -72,7 +66,7 @@ function Projects({
                   </h4>
                 </div>
               </div>
-              {selectedIndex !== null && selectedIndex === index ? (
+              {selectedIndex === index ? (
                 <div
                   onClick={($event) => {
                     $event.preventDefault();
@@ -91,6 +85,6 @@ function Projects({
       )}
     </div>
   );
-}
+};
 
 export { Projects };

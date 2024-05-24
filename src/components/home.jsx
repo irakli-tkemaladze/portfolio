@@ -1,6 +1,6 @@
-import "./home.css";
+import "./home.scss";
 
-function Home() {
+const Home = () => {
   return (
     <div className="homePageWrapper">
       <div className="homePage">
@@ -37,6 +37,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
-export {Home}
+export { Home };

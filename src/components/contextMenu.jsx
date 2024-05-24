@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./contextMenu.css";
+import "./contextMenu.scss";
 import CrudServiceForProjects from "../services/projectsCrudService";
-function ContextMenu({ closeContextMenu, contexMenuData }) {
+const ContextMenu = ({ closeContextMenu, contexMenuData }) => {
   const cardsRef = useRef();
   const navigate = useNavigate();
   useEffect(() => {
@@ -11,7 +11,6 @@ function ContextMenu({ closeContextMenu, contexMenuData }) {
         closeContextMenu();
       }
     };
-    // let listenerTimeout = null;
     let listenerTimeout = setTimeout(() => {
       document.addEventListener("click", handleOutsideClick);
     }, 0);
@@ -45,6 +44,6 @@ function ContextMenu({ closeContextMenu, contexMenuData }) {
       </div>
     </div>
   );
-}
+};
 
 export { ContextMenu };

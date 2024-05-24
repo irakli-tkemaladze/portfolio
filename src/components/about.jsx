@@ -1,6 +1,6 @@
-import "./about.css";
+import "./about.scss";
 
-function About() {
+const About=() => {
   return (
     <div className="aboutPageWrapper">
       <div className="aboutPage">

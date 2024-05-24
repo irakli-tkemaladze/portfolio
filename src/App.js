@@ -1,7 +1,7 @@
 import "./App.css";
-import { Wrapper } from "./components/portfolio";
+import { PortfolioWrapper } from "./components/portfolioWrapper";
 function App() {
-  return <Wrapper />;
+  return <PortfolioWrapper />;
 }
 
 export default App;
