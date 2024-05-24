@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import firebase from "../firebase";
 
 const projectDb = firebase.ref("/projects");
